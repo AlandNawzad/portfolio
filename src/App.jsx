@@ -11,10 +11,11 @@ function App() {
   const heroRef = useRef(null);
   const heroTextRef = useRef(null);
   const heroImageRef = useRef(null);
-  const heroIconRef = useRef(null);
+  const heroSocialsRef = useRef(null);
+  const heroScrollRef = useRef(null);
 
   useEffect(() => {
-    heroAnimation(heroRef.current, heroTextRef.current, heroImageRef.current,heroIconRef.current);
+    heroAnimation(heroRef.current, heroTextRef.current, heroImageRef.current, heroSocialsRef.current,heroScrollRef.current);
 
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
@@ -28,14 +29,15 @@ function App() {
         ref={heroRef}
         textRef={heroTextRef}
         imageRef={heroImageRef}
-        iconRef={heroIconRef}
+        socialsRef={heroSocialsRef}
+        scrollRef={heroScrollRef}
       />
     </div>
   );
 }
 
 // ✅ One timeline for both elements
-function heroAnimation(container, textEl, imageEl,iconEl) {
+function heroAnimation(container, textEl, imageEl, socialsEl,scrollRef) {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: container,
@@ -49,24 +51,28 @@ function heroAnimation(container, textEl, imageEl,iconEl) {
     opacity: 0,
     duration: 2,
     ease: "power4.inOut",
-  },);
+  });
 
-  tl.from(iconEl, {
+  tl.from(socialsEl, {
+    y:+50,
+    opacity: 0,
+    duration: 2,
+    ease: "power4.inOut",
+  },"<");
+
+  tl.from(scrollRef, {
     y:+50,
     opacity: 0,
     duration: 2,
     ease: "power4.inOut",
   },"<");
   
-
   tl.from(textEl, {
     y: -50,
     opacity: 0,
     duration: 2,
     ease: "power4.inOut",
   },'-=1.8');
-
-  
 }
 
 export default App;

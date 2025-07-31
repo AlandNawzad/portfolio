@@ -6,6 +6,12 @@ export default {
   ],
   theme: {
     extend: {
+      width: {
+        90: '22.5rem', // 360px
+      },
+      height: {
+        90: '22.5rem',
+      },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
       },
