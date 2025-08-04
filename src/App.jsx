@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/all";
 
 import Navigation from "./components/Navigation";
 import Hero from "./components/Hero";
+import About from "./components/About";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,7 +24,7 @@ function App() {
   }, []);
 
   return (
-    <div className="mx-4 md:mx-44">
+    <div className="mx-4 md:mx-48">
       <Navigation />
       <Hero
         ref={heroRef}
@@ -32,6 +33,7 @@ function App() {
         socialsRef={heroSocialsRef}
         scrollRef={heroScrollRef}
       />
+      <About />
     </div>
   );
 }

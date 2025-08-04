@@ -1,6 +1,6 @@
 import React from 'react';
 
-import myImage from "../assets/me.png";
+import myImage from "../assets/hero-image.png";
 import { FaLinkedin } from 'react-icons/fa6';
 import { FaGithub } from 'react-icons/fa6';
 import { FaEnvelope } from 'react-icons/fa6';
@@ -8,12 +8,12 @@ import { FaComputerMouse } from 'react-icons/fa6';
 
 const Hero = ({ textRef, imageRef, socialsRef,scrollRef }, ref) => {
   return (
-    <div ref={ref} className='container mt-10'>
-      <div className='flex flex-col gap-8 mt-6 items-center'>
+    <div ref={ref} className='container h-screen mt-10 '>
+      <div className='flex flex-col gap-10 mt-6 items-center'>
 
         {/* Hero text */}
         <div ref={textRef}>
-          <div className='text-center'>
+          <div className='text-center mt-2'>
             <p className='font-poppins text-portfolio-foreground font-semibold text-sm text-portfolio-primaryText mb-2'>
               Hello, I'm
             </p>
