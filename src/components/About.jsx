@@ -4,14 +4,14 @@ import aboutImage from '../assets/about-image.jpg';
 
 const About = ({ imageRef, cardRef, textRef, buttonRef }, ref) => {
   return (
-    <div className="h-screen">
+    <div ref={ref} className="h-screen flex flex-col justify-start items-center pt-16 md:justify-center md:pt-0">
       {/* About header */}
-      <div className="text-center mt-4">
+      <div className="text-center mb-8 md:mb-12">
         <p className="text-gray-500 text-sm">My intro</p>
         <h1 className="text-portfolio-primary text-2xl font-bold">About Me</h1>
       </div>
 
-      <div className="flex mt-12 gap-20 flex-col justify-center items-center md:items-start md:flex-row">
+      <div className="flex gap-20 flex-col justify-center items-center md:items-start md:flex-row">
         {/* image */}
         <img
           src={aboutImage}

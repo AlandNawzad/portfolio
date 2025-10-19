@@ -70,36 +70,46 @@ function App() {
 
 // Hero Animation
 function heroAnimation(container, textEl, imageEl, socialsEl, scrollRef) {
-  gsap.timeline({
+  const tl = gsap.timeline({
     scrollTrigger: {
       trigger: container,
-      // start: "top 80%",      // trigger when Hero top hits 80% of viewport
-      // end: "bottom top",     // end when Hero bottom hits top of viewport
+      start: "top center",        // trigger when Hero top hits center of viewport
+      end: "bottom top",          // end when Hero bottom hits top of viewport
       toggleActions: "play reverse play reverse",
-      markers: true,
+      onEnter: () => tl.play(),
+      onLeave: () => tl.reverse(),
+      onEnterBack: () => tl.play(),
+      onLeaveBack: () => tl.reverse(),
     },
-  })
-    .from(imageEl, { y: -50, opacity: 0, duration: 2, ease: "power4.inOut", immediateRender: false })
-    .from(socialsEl, { y: 50, opacity: 0, duration: 2, ease: "power4.inOut", immediateRender: false }, "<")
-    .from(scrollRef, { y: 50, opacity: 0, duration: 2, ease: "power4.inOut", immediateRender: false }, "<")
-    .from(textEl, { y: -50, opacity: 0, duration: 2, ease: "power4.inOut", immediateRender: false }, "-=1.8");
+  });
+
+  tl.from(imageEl, { y: -50, opacity: 0, duration: 1.5, ease: "power4.inOut" })
+    .from(socialsEl, { y: 50, opacity: 0, duration: 1.5, ease: "power4.inOut" }, "<")
+    .from(scrollRef, { y: 50, opacity: 0, duration: 1.5, ease: "power4.inOut" }, "<")
+    .from(textEl, { y: -50, opacity: 0, duration: 1.5, ease: "power4.inOut" }, "-=1.3");
 }
 
 // About Animation
 function aboutAnimation(container, imageEl, cardEl, textEl, buttonEl) {
-  gsap.timeline({
+  const tl = gsap.timeline({
+    paused: true,
     scrollTrigger: {
       trigger: container,
-      // start: "top 80%",      // trigger when About top hits 80% of viewport
-      // end: "bottom top",     // end when About bottom hits top of viewport
+      start: "top 75%",           // trigger when About top hits 75% of viewport
+      end: "bottom 25%",          // end when About bottom hits 25% of viewport
       toggleActions: "play reverse play reverse",
-      markers: true,
+      onEnter: () => tl.restart(),
+      onLeave: () => tl.reverse(),
+      onEnterBack: () => tl.restart(),
+      onLeaveBack: () => tl.reverse(),
     },
-  })
-    .from(imageEl, { y: -50, opacity: 0, duration: 2, ease: "power4.inOut", immediateRender: false })
-    .from(cardEl, { y: 50, opacity: 0, duration: 2, ease: "power4.inOut", immediateRender: false }, "<")
-    .from(textEl, { y: -50, opacity: 0, duration: 2, ease: "power4.inOut", immediateRender: false }, "<")
-    .from(buttonEl, { y: 50, opacity: 0, duration: 2, ease: "power4.inOut", immediateRender: false }, "<");
+  });
+
+  tl.from(imageEl, { x: -50, opacity: 0, scale: 0.8, duration: 1.5, ease: "power4.inOut" })
+    .from(cardEl, { x: 50, opacity: 0,scale: 0.8, duration: 1.5, ease: "power4.inOut" }, "<")
+    .from(buttonEl, { x: 50, opacity: 0,scale: 0.8, duration: 1.5, ease: "power4.inOut" }, "<")
+    .from(textEl, { x: 50, opacity: 0,scale: 0.8, duration: 1.5, ease: "power4.inOut" }, "-=1.4");
+    
 }
 
 export default App;

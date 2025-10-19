@@ -9,7 +9,7 @@ import { FaComputerMouse } from 'react-icons/fa6';
 const Hero = ({ textRef, imageRef, socialsRef,scrollRef }, ref) => {
   return (
     <div ref={ref} className='container h-screen mt-10 '>
-      <div className='flex flex-col gap-10 mt-6 items-center'>
+      <div className='flex flex-col gap-20 mt-20 items-center md:gap-10'>
 
         {/* Hero text */}
         <div ref={textRef}>
@@ -17,7 +17,7 @@ const Hero = ({ textRef, imageRef, socialsRef,scrollRef }, ref) => {
             <p className='font-poppins text-portfolio-foreground font-semibold text-sm text-portfolio-primaryText mb-2'>
               Hello, I'm
             </p>
-            <h1 className='font-poppins font-bold text-portfolio-primary text-2xl md:text-4xl'>
+            <h1 className='font-poppins font-bold text-portfolio-primary text-3xl md:text-4xl'>
               Aland Nawzad
             </h1>
             <h3 className='font-poppins text-portfolio-secondaryText text-xs mt-3 md:text-sm'>
